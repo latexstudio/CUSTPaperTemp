@@ -4,7 +4,7 @@
 % 创建时间: Wednesday, April 24th 2019, 11:47:25 pm
 % 创作者: ElonH
 % --------------------
-% 最后修改时间: Thu May 09 2019
+% 最后修改时间: Fri May 10 2019
 % 修改者: ElonH
 % ----------------------------------------
 % MIT License
@@ -32,6 +32,7 @@
 % 更改日志:
 % 日期       	说明
 % -----------	------------------------------------
+% 2019/05/10	修复多引用问题
 % 2019/05/09	添加章节引用样式
 % 2019/04/26	表格, 插图, 参考文献, 脚注, 附录, 致谢页, pdf文件信息
 % 2019/04/25	中英文摘要页,目录
@@ -759,8 +760,7 @@
 
 %设置参考文献
 \RequirePackage{chapterbib}
-\RequirePackage{natbib}
-\setcitestyle{numbers,square,comma,sort&compress} % 阿拉伯数字,方括号,逗号分隔,第一次引用顺序编号
+\RequirePackage[square,numbers,sort&compress]{natbib} % 方括号,阿拉伯数字,第一次引用顺序编号
 \ctexset{bibname={参考文献}}
 
 \newcommand{\upcite}[2][]{
