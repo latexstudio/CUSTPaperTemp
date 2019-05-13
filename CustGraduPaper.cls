@@ -32,6 +32,7 @@
 % 更改日志:
 % 日期       	说明
 % -----------	------------------------------------
+% 2019/05/13	英文关键词加粗
 % 2019/05/13	默认引用样式改为gbt7714-2015
 % 2019/05/10	修复多引用问题
 % 2019/05/09	添加章节引用样式
@@ -488,7 +489,7 @@
 	\vspace{1em} % keys word 与 abstract 空一行
 	\par\noindent {% 顶格
 		\zihao{-4} % 小四,times,
-		% TODO: 加粗? \bfseries 
+		\bfseries 
 		Key Words: \enkeyword
 		}
 	\clearpage
