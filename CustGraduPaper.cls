@@ -4,7 +4,7 @@
 % 创建时间: Wednesday, April 24th 2019, 11:47:25 pm
 % 创作者: ElonH
 % --------------------
-% 最后修改时间: Fri May 10 2019
+% 最后修改时间: Mon May 13 2019
 % 修改者: ElonH
 % ----------------------------------------
 % MIT License
@@ -32,6 +32,7 @@
 % 更改日志:
 % 日期       	说明
 % -----------	------------------------------------
+% 2019/05/13	默认引用样式改为gbt7714-2015
 % 2019/05/10	修复多引用问题
 % 2019/05/09	添加章节引用样式
 % 2019/04/26	表格, 插图, 参考文献, 脚注, 附录, 致谢页, pdf文件信息
@@ -54,13 +55,13 @@
 
 
 % ============= beg 类选项 =============
-\RequirePackage{xstring} % 使用条件语句 % TODO: remove?
+\RequirePackage{xstring} % 使用条件语句 
 % 页脚样式
-\def\CGP@footlinelength{6.7cm}% TODO: remove value?
+\def\CGP@footlinelength{6.7cm}
 \DeclareOption{footline}{\def\CGP@footlinelength{6.7cm}} % 有页脚线
 \DeclareOption{nofootline}{\def\CGP@footlinelength{0cm}} % 无页脚线
 % 文献样式
-\def\CGP@citebst{gbt7714-2005}% TODO: remove value ?
+\def\CGP@citebst{gbt7714-2015}% TODO: 默认样式?
 \DeclareOption{gbtcite}{\def\CGP@citebst{gbt7714-2005}} % 使用GBT7714-2005样式
 \DeclareOption{gbt15cite}{\def\CGP@citebst{gbt7714-2015}} % 使用GBT7714-2015样式
 \DeclareOption{tsinghuacite}{\def\CGP@citebst{thuthesis}} % 使用清华样式
@@ -78,7 +79,7 @@
 	oneside, % 单页样式
     scheme=chinese, % 中文排版方案
     punct = quanjiao, % 标点处理格式: 全角
-    linespread=1.25, % 默认 1.25 倍行距 % TODO: value??
+    linespread=1.25, % 默认 1.25 倍行距 
     heading = true, % 启用章节标题风格修改
     autoindent = true, % 自动调整段首缩进, 缩进 2 个字符
 ]{ctexbook}[2016/12/27]
