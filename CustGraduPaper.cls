@@ -32,6 +32,7 @@
 % 更改日志:
 % 日期       	说明
 % -----------	------------------------------------
+% 2019/05/19	附录图片和表格引用格式
 % 2019/05/18	附录公式引用格式
 % 2019/05/13	英文关键词加粗
 % 2019/05/13	默认引用样式改为gbt7714-2015
@@ -624,11 +625,12 @@
 \renewcommand{\textcircled}[1]{
 	% \oldtextcircled{\small #1}
 	\ding{\numexpr171+#1\relax}
+	% \raisebox{0.05em}{\oldtextcircled{\raisebox{-0.05em}{#1}}}
+	% \raisebox{.9pt}{\oldtextcircled{\raisebox{-.9pt}{#1}}}%
+	% {\ooalign{\hfil\lower.1ex\hbox{#1}\hfil\crcr\Orb}}
+	% \ding{\numexpr171+#1\relax}
 }
-% \raisebox{0.05em}{\oldtextcircled{\raisebox{-0.05em}{#1}}}
-% \raisebox{.9pt}{\oldtextcircled{\raisebox{-.9pt}{#1}}}%
-% {\ooalign{\hfil\lower.1ex\hbox{#1}\hfil\crcr\Orb}}
-% \ding{\numexpr171+#1\relax}
+
 % ============= end 带圈数字 =============
 
 % ============= beg 设置图表样式 =============
@@ -757,8 +759,10 @@
 			name = {\Alph{chapter}.},
 		},
 	}
-	% 重设公式引用格式
+	% 重设引用格式
 	\renewcommand\theequation{\textcircled{\arabic{chapter}}-\arabic{equation}}
+	\renewcommand\thefigure{\textcircled{\arabic{chapter}}-\arabic{figure}}
+	\renewcommand\thetable{\textcircled{\arabic{chapter}}-\arabic{table}}
 }
 
 % ============= end 设置附录页 =============

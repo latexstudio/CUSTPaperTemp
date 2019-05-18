@@ -32,6 +32,7 @@
 % 更改日志:
 % 日期       	说明
 % -----------	------------------------------------
+% 2019/05/19	附录图片和表格引用格式
 % 2019/05/19	附录公式引用格式
 % 2019/05/10	多引用
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,7 +40,8 @@
 
 \documentclass{CustGraduPaper}
 \usepackage{lipsum}
-\usepackage{bm}
+\usepackage{bm,tikz}
+\usetikzlibrary{shapes,arrows,shadows,calc}
 
 \begin{document}
 \cntitle{毕业论文中文题目}
@@ -204,6 +206,7 @@ $$
 
 同时也可以引用该图片例如：\autoref{fig:data}。请注意generalfig第一个参数是标题，第二个参数是引用。
 
+对附录上的图片引用\autoref{fig:tikz}
 \newpage
 
 \section{表的使用}
@@ -226,6 +229,7 @@ $$
 \end{generaltab}
 
 当然你也可以引用表格，就像这样：\autoref{tab:heightweight}。
+引用附录表格\autoref{tab:LatexTableGenerator}
 
 \section{列表的使用}
 这是一个计数的列表
@@ -274,7 +278,41 @@ $$
 	\end{equation}
 	\subsubsection{附录中也可以有小小节}\label{apxsubsubsec:appendix}
 	% \verb|\autoref|无法识别Appendices环境，引用效果和正文一样，如\autoref{apxsubsubsec:appendix}。所以如果引用附录的话，建议直接使用附录~\ref{apxsubsubsec:appendix}~。
+	附录中的图片：
+	\begin{generalfig}[htb]{Tikz画流程图}{fig:tikz}
+		\begin{tikzpicture}[->,>=stealth,shorten >=1pt,auto,node distance=2.8cm,thick]
+			\tikzstyle{every state}=[
+			rounded corners,shape=rectangle,drop shadow,minimum height=2.5em,
+			text=black,draw=gray!40,align=center]
+			\tikzstyle{every edge}=[draw=gray,very thick]
+			\tikzstyle{diaState}{gray} = [every state,bottom color=#1!40,top color=white!80!#1!40]
+			%  red , cyan , blue , green , 
+			%  orange , yellow , magenta , 
+			%  purple , brown , violet and teal
+			
+			\node[diaState=red]  (a)  {Center};
+			\node[diaState=cyan]  (b)    [right of=a]{Right};
+			\node[diaState=blue]  (c)  [left of=a]{Left};
+			\node[diaState=green]  (d)   [below of=a]{below};
+			\node[diaState=orange]	(e)	[above of=a]{above};
+			\path 	(a)	edge node[above]{edge} node[below]{e2} 	(b)
+						edge	(c)
+						edge	(d)
+						edge	(e);
+		\end{tikzpicture}
+	\end{generalfig}
+	
+	附录中的表格：
+	\begin{generaltab}{LaTeX Table Generator}{tab:LatexTableGenerator}
+		\begin{tabularx}{\textwidth}{CCCCC}
+			\toprule
+			a & s & d     & f     & g    \\
+			\midrule
+			3 &   &       &       &      \\
+			t &   & 	  &		  &		 \\
+			\bottomrule
+		\end{tabularx}
+	\end{generaltab}
+
 \end{appendices}
-
-
 \end{document}
