@@ -4,7 +4,7 @@
 % 创建时间: Thursday, April 25th 2019, 12:27:01 am
 % 创作者: ElonH
 % --------------------
-% 最后修改时间: Mon May 13 2019
+% 最后修改时间: Sun May 19 2019
 % 修改者: ElonH
 % ----------------------------------------
 % MIT License
@@ -32,6 +32,7 @@
 % 更改日志:
 % 日期       	说明
 % -----------	------------------------------------
+% 2019/05/19	附录公式引用格式
 % 2019/05/10	多引用
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -186,11 +187,13 @@ $$
 	\oint_{\partial S} \mathbf{E} \cdot \mathrm{d} \mathbf{l}& =-\frac{\partial \Phi_{B, S}}{\partial t} \\
 	\oint_{\partial S} \mathbf{H} \cdot \mathrm{d} \mathbf{l}& =I_{f, s}+\frac{\partial \Phi_{D, S}}{\partial t}
 \end{flalign}
+对附录中的公式进行引用\autoref{eq:appendices}
+
 以上
 \[\frac{123}{2}\]
 
 \chapter{用图和表的示例}
-\subsection{图的使用}
+\section{图的使用}
 % \XeLaTeX 环境下可以使用EPS、PDF、PNG、JPEG、BMP格式的图片，当然也可以用绘图包直接在\LaTeX 中绘制图形，推荐使用宏包tikz。图的环境是figure，但figure环境使用复杂且不自带标题，因此本模板定义了一个通用版本的generalfig，该环境会将figure内的图片居中并设置标签与引用名，同时会让图片位置设置为所有可行位置（htbp，即此处、页顶、页底、独立一页），此选项可以作为可选参数设置。
 
 其使用方法如下：
@@ -262,6 +265,13 @@ $$
 	这里是附录环境，其中的section、subsection、subsubsection已经变为附录的样式，并且会以这种样式加入目录中
 	\section{附录可以有小节}
 	\subsection{小小节}
+	附录公式引用使用带圈数字
+	\begin{equation}\label{eq:appendices}
+		\nabla F = (
+		\frac{\partial F}{\partial x},
+		\frac{\partial F}{\partial y},
+		\frac{\partial F}{\partial z})
+	\end{equation}
 	\subsubsection{附录中也可以有小小节}\label{apxsubsubsec:appendix}
 	% \verb|\autoref|无法识别Appendices环境，引用效果和正文一样，如\autoref{apxsubsubsec:appendix}。所以如果引用附录的话，建议直接使用附录~\ref{apxsubsubsec:appendix}~。
 \end{appendices}

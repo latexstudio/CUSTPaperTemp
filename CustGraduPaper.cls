@@ -4,7 +4,7 @@
 % 创建时间: Wednesday, April 24th 2019, 11:47:25 pm
 % 创作者: ElonH
 % --------------------
-% 最后修改时间: Mon May 13 2019
+% 最后修改时间: Sun May 19 2019
 % 修改者: ElonH
 % ----------------------------------------
 % MIT License
@@ -32,6 +32,7 @@
 % 更改日志:
 % 日期       	说明
 % -----------	------------------------------------
+% 2019/05/18	附录公式引用格式
 % 2019/05/13	英文关键词加粗
 % 2019/05/13	默认引用样式改为gbt7714-2015
 % 2019/05/10	修复多引用问题
@@ -614,6 +615,22 @@
 }
 % ============= end 章节引用样式 =============
 
+% ============= beg 带圈数字 =============
+\RequirePackage{pifont}
+% \RequirePackage{tcolorbox}
+
+% 画带圈数字 [url]https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+\let \oldtextcircled \textcircled
+\renewcommand{\textcircled}[1]{
+	% \oldtextcircled{\small #1}
+	\ding{\numexpr171+#1\relax}
+}
+% \raisebox{0.05em}{\oldtextcircled{\raisebox{-0.05em}{#1}}}
+% \raisebox{.9pt}{\oldtextcircled{\raisebox{-.9pt}{#1}}}%
+% {\ooalign{\hfil\lower.1ex\hbox{#1}\hfil\crcr\Orb}}
+% \ding{\numexpr171+#1\relax}
+% ============= end 带圈数字 =============
+
 % ============= beg 设置图表样式 =============
 % 图题,标题和引用格式
 % \renewcommand{\thefigure}{\ifnum \c@section>\z@ \arabic{chapter}-\fi \@arabic\c@figure}
@@ -740,6 +757,8 @@
 			name = {\Alph{chapter}.},
 		},
 	}
+	% 重设公式引用格式
+	\renewcommand\theequation{\textcircled{\arabic{chapter}}-\arabic{equation}}
 }
 
 % ============= end 设置附录页 =============
