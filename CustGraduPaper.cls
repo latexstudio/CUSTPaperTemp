@@ -32,6 +32,7 @@
 % 更改日志:
 % 日期       	说明
 % -----------	------------------------------------
+% 2019/05/19	摘要格式修正及添加提示
 % 2019/05/19	修正附录序号样式
 % 2019/05/19	附录图片和表格引用格式
 % 2019/05/18	附录公式引用格式
@@ -450,23 +451,23 @@
 
 
 \newenvironment{cnabstract}[1]{
-	\def \cnkeyword {#1} % 关键词事先从参数中读入,请注意使用两个空格(\ \ )分割关键词！
+	\def \cnkeyword {#1} % 关键词事先从参数中读入,请注意使用两个空格(\quad)分割关键词！
 	\clearpage 
 	\pagestyle{main}
 	\pagenumbering{Roman}
 	\phantomsection % 保证链接正确
 	\addcontentsline{toc}{chapter}{摘要} % 加入到目录中
-	\begin{center} 
-		\heiti \bfseries \zihao{3} % 宋体,居中,3号,加粗,1.25行距
+	\begin{center} % 宋体，居中，三号，加粗；多倍行距1.25，段前0行，段后1行，取消网格对齐
+		\songti \bfseries \zihao{3}
 		摘要
 	\end{center}
-	\vspace{1em} % 段后一行
-	\songti \zihao{-4} 
+	\vspace{1em}
+	\songti \zihao{-4} % 摘要正文，段落首行缩进2个字符，宋体，小四；多倍行距1.25，段前、段后均为0行，取消网格对齐。
 	\par\indent
 }{
 	\vspace{1em} % 关键词与摘要之间空一行
-	\par\noindent { % 顶格书写
-		\heiti \zihao{-4} % 黑体,小四 % TODO: 加粗? \bfseries 
+	\par\noindent { % 黑体小四顶格书写
+		\heiti \zihao{-4} 
 		关键词： \cnkeyword
 	}
 	\clearpage
@@ -476,22 +477,22 @@
 
 % ============= beg 英文摘要页 =============
 \newenvironment{enabstract}[1]{
-	\def \enkeyword {#1} % 关键词事先从参数中读入,请注意使用分号(TODO: cn or en)分割关键词！
+	\def \enkeyword {#1} % 关键词事先从参数中读入,请注意使用分号加空格(; )分割关键词！
 	\clearpage 
 	\pagestyle{main}
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Abstract}
-	\begin{center} 
-		\bfseries \zihao{3} % 3号,居中,1.25倍行距 
+	\begin{center} % 居中；Times New Roman，居中，三号，加粗；多倍行距1.25，段前0行，段后1行，取消网格对齐。
+		\bfseries \zihao{3}
 		Abstract 
 	\end{center}
 	\vspace{1em} % 段后空一行
-	\zihao{-4}
+	\zihao{-4} % Abstract正文设置：段落首行缩进2字；Times New Roman，小四；多倍行距1.25，段前、段后均为0行，取消网格对齐。
 	\par\indent
 }{
-	\vspace{1em} % keys word 与 abstract 空一行
-	\par\noindent {% 顶格
-		\zihao{-4} % 小四,times,
+	\vspace{1em} % Key words与Abstract正文之间空一行。
+	\par\noindent {% Times New Roman，小四，顶格书写
+		\zihao{-4}
 		\bfseries 
 		Key Words: \enkeyword
 		}
