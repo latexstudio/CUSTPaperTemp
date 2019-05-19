@@ -32,6 +32,7 @@
 % 更改日志:
 % 日期       	说明
 % -----------	------------------------------------
+% 2019/05/19	修正附录序号样式
 % 2019/05/19	附录图片和表格引用格式
 % 2019/05/18	附录公式引用格式
 % 2019/05/13	英文关键词加粗
@@ -751,12 +752,20 @@
 \AtBeginEnvironment{appendices}{%
 	\ctexset{
 		chapter={
-			number = {\Alph{chapter}},
+			number = {\arabic{chapter}},
 			name = {附录},
 		},
 		section={
 			number = {\arabic{section}},
-			name = {\Alph{chapter}.},
+			name = {\arabic{chapter}.},
+		},
+		subsection={
+			number = {\arabic{subsection}},
+			name = {\arabic{chapter}.\arabic{section}.},
+		},
+		subsubsection={
+			number = {\arabic{subsection}},
+			name = {\arabic{chapter}.\arabic{section}.\arabic{subsection}.},
 		},
 	}
 	% 重设引用格式
