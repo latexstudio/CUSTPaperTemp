@@ -32,6 +32,7 @@
 % 更改日志:
 % 日期       	说明
 % -----------	------------------------------------
+% 2019/05/19	公式样式调整
 % 2019/05/19	摘要格式修正及添加提示
 % 2019/05/19	修正附录序号样式
 % 2019/05/19	附录图片和表格引用格式
@@ -725,12 +726,12 @@
 \renewcommand\theequation{\arabic{chapter}-\arabic{equation}} 
 
 %设置公式间距为零
-\AtBeginDocument{
-	\setlength{\abovedisplayskip}{6pt}
-	\setlength{\belowdisplayskip}{6pt}
-	\setlength{\abovedisplayshortskip}{0pt}
-	\setlength{\belowdisplayshortskip}{0pt} 
-}
+% \AtBeginDocument{
+% 	\setlength{\abovedisplayskip}{6pt}
+% 	\setlength{\belowdisplayskip}{6pt}
+% 	\setlength{\abovedisplayshortskip}{0pt}
+% 	\setlength{\belowdisplayshortskip}{0pt} 
+% }
 
 %重新设置公式autoref
 %\newcommand{\equationautorefname}{等式}
