@@ -32,6 +32,7 @@
 % 更改日志:
 % 日期       	说明
 % -----------	------------------------------------
+% 2019/05/19	目录页添加页眉，Chapter标题前后距离调整
 % 2019/05/19	修复每一章节无页眉页脚
 % 2019/05/19	公式样式调整
 % 2019/05/19	摘要格式修正及添加提示
@@ -561,7 +562,7 @@
 \let \oldtableofcontents \tableofcontents
 \renewcommand{\tableofcontents}{
 	\clearpage
-	\pagestyle{head}
+	\pagestyle{main}
 	\oldtableofcontents
 	\clearpage
 	\pagestyle{main} % 恢复正文样式
@@ -582,6 +583,8 @@
 		format={\centering \songti \bfseries \zihao{3}}, %一级标题, 宋体,三号,加粗,居中
 		% break = {},  %新的一级标题从新的一页开始 TODO: remove? 或者 下面格式 HACK: 无法起效
 		% break = {\Needspace{0.5\textheight}}, % 当前页剩余高度小于正文高度的一半时，则另起一页输出
+		beforeskip={-1em},
+		afterskip={2em},
 	},	
 	section={ 
 		numbering = true, % 二级标题 1.1, 1.2, 2.1 ....
